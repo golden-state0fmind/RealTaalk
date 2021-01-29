@@ -19,6 +19,10 @@ Socket.io
 HTML
 CSS
 
+##### ERD
+
+![ERD](images/REALTAALk.ERD.png)
+
 ##### Screenshot(s)
 
 ![LandingPage](images/DesktopLandingSketch.svg)
