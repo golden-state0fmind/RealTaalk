@@ -1,17 +1,23 @@
 {
-    "development": {
-        "database": "DB NAME HERE",
-        "host": "127.0.0.1",
-        "dialect": "postgres"
-    },
-    "test": {
-        "database": "DB NAME HERE",
-        "host": "127.0.0.1",
-        "dialect": "postgres"
-    },
-    "production": {
-        "database": "DB NAME HERE",
-        "host": "127.0.0.1",
-        "dialect": "postgres"
-    }
+  "development": {
+    "username": "",
+    "password": null,
+    "database": "user",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "",
+    "password": null,
+    "database": "user",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "",
+    "password": null,
+    "database": "user",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
 }
