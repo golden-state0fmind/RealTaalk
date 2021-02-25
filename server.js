@@ -4,12 +4,13 @@ const express = require('express')
 const cors = require('cors')
 const session = require('express-session')
 const morgan = require('morgan')
-
 const routes = require('./routes')
 const passport = require('./passport')
 
 const port = process.env.PORT || 4000
 const app = express()
+const http = require('http').createServer(app)
+const io = require('socket.io')(http)
 
 // middleware - server logging
 app.use(morgan('dev'))
@@ -44,6 +45,13 @@ app.use(passport.session())
 
 // middleware - API routes
 app.use('/api/v1/auth', routes.auth)
+
+//websocket from socket.io
+io.on('connection', socket => {
+    socket.on('message', ({ name, message }) => {
+        io.emit('message', ({ name, message }))
+    })
+})
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`))
