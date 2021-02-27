@@ -10,7 +10,7 @@ const passport = require('./passport')
 const port = process.env.PORT || 4000
 const app = express()
 const http = require('http').createServer(app)
-const io = require('socket.io')(http)
+const io = require('socket.io')(port, http)
 
 // middleware - server logging
 app.use(morgan('dev'))
