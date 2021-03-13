@@ -10,13 +10,17 @@ const passport = require('./passport')
 const port = process.env.PORT || 4000
 const app = express()
 const http = require('http').createServer(app)
-const io = require('socket.io')(4001, http)
+const io = require('socket.io')(3000, http)
 
 //websocket from socket.io
 io.on('connection', socket => {
     socket.on('message', ({ name, message }) => {
         io.emit('message', ({ name, message }))
     })
+    console.log('successfull connection')
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
 })
 // middleware - server logging
 app.use(morgan('dev'))
@@ -27,7 +31,7 @@ app.use(express.json())
 // middleware - cors
 const corsOptions = {
     // from which URLs do we want to accept requests
-    origin: ['http://localhost:3000', 'http://localhost:4001/'],
+    origin: ['http://localhost:3000', 'http://localhost:4000'],
     credentials: true, // allow the session cookie to be sent to and from the client
     optionsSuccessStatus: 204
 }
